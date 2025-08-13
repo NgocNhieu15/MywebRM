@@ -1,0 +1,107 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thanh toán - ROMAND Official VN</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .co-wrap{max-width:1000px;margin:0 auto;padding:2rem;display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+    .panel{background:#fff;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,0.04);padding:1rem}
+    label{display:block;margin:.5rem 0 .25rem;font-weight:700;color:#7a585f}
+    input,textarea,select{width:100%;padding:.6rem;border:1px solid #f0cbd3;border-radius:8px}
+    .sum-line{display:flex;justify-content:space-between;margin:.4rem 0;color:#7a585f}
+    .sum-line.total{font-weight:800;color:#d93b5b}
+    .btn{width:100%;margin-top:1rem}
+    @media (max-width:900px){ .co-wrap{grid-template-columns:1fr} }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo">ROMAND <span>Official VN</span></div>
+      <nav class="nav"><a href="index.html">Trang chủ</a></nav>
+      <div class="cart-floating">🛒 Giỏ (<span id="cart-count">0</span>)</div>
+    </div>
+  </header>
+
+  <div class="co-wrap">
+    <form class="panel" id="co-form">
+      <h2>Thông tin giao hàng</h2>
+      <label>Họ và tên</label><input id="name" required>
+      <label>Số điện thoại</label><input id="phone" type="tel" required>
+      <label>Email (nhận hóa đơn)</label><input id="email" type="email">
+      <label>Địa chỉ</label><textarea id="addr" rows="3" required></textarea>
+      <label>Ghi chú</label><textarea id="note" rows="2" placeholder="Ví dụ: Giao giờ hành chính, không gọi khi trưa..."></textarea>
+
+      <h3>Phương thức thanh toán</h3>
+      <select id="pay">
+        <option value="COD">Thanh toán khi nhận hàng (COD)</option>
+        <option value="BANK">Chuyển khoản ngân hàng</option>
+        <option value="E-WALLET">Ví điện tử</option>
+      </select>
+      <button class="btn" type="submit">Xác nhận đặt hàng</button>
+    </form>
+
+    <aside class="panel">
+      <h2>Đơn hàng</h2>
+      <div id="order-lines"></div>
+      <hr style="border:none;height:1px;background:#f3d6de;margin:1rem 0">
+      <div class="sum-line"><span>Tạm tính</span><span id="subtotal">₫0</span></div>
+      <div class="sum-line"><span>Phí vận chuyển</span><span id="ship">₫20,000</span></div>
+      <div class="sum-line total"><span>Tổng cộng</span><span id="grand">₫0</span></div>
+    </aside>
+  </div>
+
+  <script src="scripts.js"></script>
+  <script>
+    const lines = document.getElementById('order-lines');
+    const subtotalEl = document.getElementById('subtotal');
+    const shipEl = document.getElementById('ship');
+    const grandEl = document.getElementById('grand');
+
+    function renderSummary(){
+      const cart = loadCart();
+      lines.innerHTML='';
+      let sub = 0;
+      cart.forEach(it=>{
+        const div = document.createElement('div');
+        div.className='sum-line';
+        const line = it.price * it.qty;
+        sub += line;
+        div.innerHTML = \`<span>\${it.name} × \${it.qty}</span><span>₫\${line.toLocaleString('vi-VN')}</span>\`;
+        lines.appendChild(div);
+      });
+      const ship = cart.length ? 20000 : 0;
+      subtotalEl.textContent = '₫' + sub.toLocaleString('vi-VN');
+      shipEl.textContent = '₫' + ship.toLocaleString('vi-VN');
+      grandEl.textContent = '₫' + (sub+ship).toLocaleString('vi-VN');
+    }
+    renderSummary();
+
+    document.getElementById('co-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      if(!loadCart().length){ alert('Giỏ hàng đang trống.'); return; }
+      const order = {
+        name: document.getElementById('name').value.trim(),
+        phone: document.getElementById('phone').value.trim(),
+        email: document.getElementById('email').value.trim(),
+        address: document.getElementById('addr').value.trim(),
+        note: document.getElementById('note').value.trim(),
+        pay: document.getElementById('pay').value,
+        cart: loadCart(),
+        total: document.getElementById('grand').textContent
+      };
+      // Demo: lưu order vào localStorage để minh họa
+      const orders = JSON.parse(localStorage.getItem('romand_demo_orders')||'[]');
+      orders.push(order);
+      localStorage.setItem('romand_demo_orders', JSON.stringify(orders));
+      // Xóa giỏ và chuyển về trang chủ
+      localStorage.removeItem('romand_demo_cart_v1');
+      alert('Đặt hàng thành công! Cảm ơn bạn đã mua sắm tại ROMAND Official VN ♥');
+      window.location.href = 'index.html';
+    });
+  </script>
+</body>
+</html>

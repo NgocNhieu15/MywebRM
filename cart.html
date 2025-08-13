@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Giỏ hàng - ROMAND Official VN</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .cart-container{max-width:1100px;margin:0 auto;padding:2rem}
+    table{width:100%;border-collapse:collapse;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 6px 18px rgba(0,0,0,0.04)}
+    th,td{padding:12px;border-bottom:1px solid #f3d6de;text-align:center}
+    th{background:#ffe8ef;color:#b24a61}
+    td img{width:70px;height:70px;object-fit:cover;border-radius:10px}
+    .actions button{padding:6px 10px;border:0;border-radius:8px;background:#f5c5d2;cursor:pointer}
+    .total-box{display:flex;justify-content:flex-end;gap:1rem;align-items:center;margin-top:1rem}
+    .total-box .sum{font-weight:800;color:#d93b5b;font-size:1.1rem}
+    .btn{background:#d93b5b;color:#fff;border-radius:999px;padding:0.6rem 1rem;border:0;text-decoration:none}
+    .btn.ghost{background:transparent;color:#d93b5b;border:2px solid rgba(217,59,91,0.2)}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo">ROMAND <span>Official VN</span></div>
+      <nav class="nav">
+        <a href="index.html#products">Sản phẩm</a>
+        <a href="index.html#commit">Cam kết</a>
+        <a href="index.html#reviews">Đánh giá</a>
+      </nav>
+      <div class="cart-floating">🛒 Giỏ (<span id="cart-count">0</span>)</div>
+    </div>
+  </header>
+
+  <div class="cart-container">
+    <h1>Giỏ hàng của bạn</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Hình ảnh</th>
+          <th>Sản phẩm</th>
+          <th>Giá</th>
+          <th>Số lượng</th>
+          <th>Thành tiền</th>
+          <th>Xóa</th>
+        </tr>
+      </thead>
+      <tbody id="cart-rows"></tbody>
+    </table>
+
+    <div class="total-box">
+      <a class="btn ghost" href="index.html">← Tiếp tục mua sắm</a>
+      <div class="sum" id="sum">Tổng: ₫0</div>
+      <a class="btn" href="checkout.html">Thanh toán</a>
+    </div>
+  </div>
+
+  <script src="scripts.js"></script>
+  <script>
+    const tbody = document.getElementById('cart-rows');
+    const sumEl = document.getElementById('sum');
+
+    function renderCart(){
+      const cart = loadCart();
+      tbody.innerHTML = '';
+      let total = 0;
+      cart.forEach((it, idx)=>{
+        const tr = document.createElement('tr');
+        const line = it.price * it.qty;
+        total += line;
+        tr.innerHTML = \`
+          <td><img src="\${it.img || 'images/son01.svg'}" alt="\${it.name}"></td>
+          <td>\${it.name}</td>
+          <td>₫\${it.price.toLocaleString('vi-VN')}</td>
+          <td><input type="number" min="1" value="\${it.qty}" style="width:70px" onchange="updateQty(\${idx}, this.value)"></td>
+          <td>₫\${line.toLocaleString('vi-VN')}</td>
+          <td class="actions"><button onclick="removeItem(\${idx})">Xóa</button></td>
+        \`;
+        tbody.appendChild(tr);
+      });
+      sumEl.textContent = 'Tổng: ₫' + total.toLocaleString('vi-VN');
+    }
+
+    function updateQty(i, v){
+      const cart = loadCart();
+      cart[i].qty = Math.max(1, parseInt(v)||1);
+      saveCart(cart);
+      renderCart();
+    }
+    function removeItem(i){
+      const cart = loadCart();
+      cart.splice(i,1);
+      saveCart(cart);
+      renderCart();
+    }
+
+    renderCart();
+  </script>
+</body>
+</html>

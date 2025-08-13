@@ -1,0 +1,98 @@
+
+/* === ROMAND Store - base styles === */
+:root{
+  --bg:#fff;
+  --rose-50:#fff5f7;
+  --rose-100:#ffeef2;
+  --rose-200:#ffd6e0;
+  --accent:#d93b5b;
+  --muted:#7a585f;
+  --container:1100px;
+  --radius:12px;
+  --card-shadow: 0 10px 30px rgba(210,59,85,0.06);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  background:linear-gradient(180deg, var(--rose-50), #fff);
+  color:#3b2b2b;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.45;
+  padding-bottom:60px;
+}
+.container{max-width:var(--container);margin:0 auto;padding:2rem}
+
+.site-header{position:sticky;top:0;background:rgba(255,255,255,0.95);backdrop-filter:blur(6px);border-bottom:1px solid rgba(220,180,190,0.6);z-index:50}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:0.8rem 1rem}
+.logo{font-weight:800;color:var(--accent);font-size:1.2rem}
+.logo span{display:block;font-weight:400;font-size:0.75rem;color:#b24a61}
+.nav a{margin-left:1rem;color:var(--muted);text-decoration:none;font-weight:600}
+.nav a:hover{color:var(--accent)}
+.cart-floating{background:var(--accent);color:#fff;padding:0.5rem 0.7rem;border-radius:999px;display:flex;gap:0.5rem;align-items:center;font-weight:700;cursor:pointer}
+
+/* Hero */
+.hero{background:linear-gradient(180deg,var(--rose-100),#fff);padding:3.2rem 0;border-bottom:1px solid rgba(250,200,210,0.5)}
+.hero-inner{display:flex;gap:2rem;align-items:center;justify-content:space-between}
+.hero-text{flex:1;min-width:260px}
+.eyebrow{display:inline-block;background:#fff0f2;color:var(--accent);padding:0.25rem 0.6rem;border-radius:999px;font-weight:700;margin-bottom:0.75rem}
+h1{margin:0 0 0.6rem;font-size:2rem;color:var(--accent);letter-spacing:-0.4px}
+p.lead{margin:0 0 1.1rem;color:#6b4a52}
+.hero-ctas{display:flex;gap:0.6rem;flex-wrap:wrap}
+.btn{background:var(--accent);color:#fff;padding:0.6rem 1rem;border-radius:999px;border:0;cursor:pointer;font-weight:700;text-decoration:none}
+.btn.ghost{background:transparent;color:var(--accent);border:2px solid rgba(217,59,91,0.12)}
+.hero-image{width:380px;height:260px;border-radius:18px;background:linear-gradient(90deg,#fff5f7,#fff1f3);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;box-shadow:var(--card-shadow)}
+.hero-image img{max-width:100%;max-height:100%;object-fit:cover}
+
+/* Products */
+.section{padding:3rem 0}
+.section-title{text-align:center;color:var(--accent);font-size:1.25rem;margin-bottom:0.25rem}
+.section-sub{text-align:center;color:#9a6a75;margin-bottom:1.25rem}
+.product-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.25rem;margin-top:1rem}
+.product-card{background:#fff;padding:1rem;border-radius:14px;box-shadow:0 10px 30px rgba(200,100,130,0.04);text-align:center;display:flex;flex-direction:column;gap:0.5rem}
+.product-img{height:160px;border-radius:10px;background:linear-gradient(90deg,#ffdfe6,#fff5f7);display:flex;align-items:center;justify-content:center;font-weight:800;color:#b6576b;margin-bottom:0.25rem;overflow:hidden}
+.product-img img{width:100%;height:100%;object-fit:cover}
+.product-card h3{margin:0;font-size:1rem}
+.product-card p.price{margin:0.25rem 0;color:var(--accent);font-weight:800}
+.card-actions{display:flex;gap:0.5rem;justify-content:center;margin-top:auto}
+.small{padding:0.45rem 0.6rem;border-radius:10px;font-weight:700;cursor:pointer;border:0}
+
+/* Commit & other sections */
+.commit-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:1rem}
+.commit-card{background:linear-gradient(180deg,#fff,#fffafa);padding:1rem;border-radius:12px;box-shadow:var(--card-shadow)}
+.testimonials{display:flex;align-items:center;gap:1rem;justify-content:center;margin-top:1rem}
+.test-track{display:flex;gap:1rem;overflow:hidden;width:100%;max-width:1000px}
+.test-item{min-width:280px;background:#fff;padding:1rem;border-radius:12px;box-shadow:0 6px 18px rgba{0,0,0,0.04}}
+.stars{color:#f5b041;font-weight:800;margin-bottom:0.4rem}
+.test-meta{font-size:0.85rem;color:#8b5a61;margin-top:0.6rem}
+.faq-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin-top:1rem}
+details{background:#fff;padding:0.9rem;border-radius:10px;box-shadow:0 6px 18px rgba(0,0,0,0.03)}
+.newsletter{background:linear-gradient(180deg,#fff4f8,#fff);padding:1.5rem;border-radius:14px;text-align:center;box-shadow:var(--card-shadow);margin-top:1.5rem}
+.newsletter input{padding:0.6rem 0.8rem;border-radius:8px;border:1px solid #f3c8d0;min-width:260px}
+.site-footer{margin-top:2rem;background:transparent;padding:2rem 0;text-align:center;color:#7a595f}
+
+/* Modal & toast */
+.modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(18,8,10,0.45);z-index:80}
+.modal[aria-hidden="false"]{display:flex}
+.modal-content{background:#fff;border-radius:12px;max-width:920px;width:94%;padding:1rem}
+.modal-body{display:flex;gap:1rem;align-items:flex-start}
+.modal-img{width:260px;height:260px;border-radius:10px;background:linear-gradient(180deg,#ffeef2,#fff5f7);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.modal-img img{width:100%;height:100%;object-fit:cover}
+.modal-info{flex:1}
+.modal-close{background:transparent;border:0;font-size:1.6rem;float:right;cursor:pointer}
+.toast{position:fixed;right:20px;bottom:20px;background:var(--accent);color:#fff;padding:0.6rem 1rem;border-radius:8px;display:none;z-index:90}
+.toast.show{display:block;animation:fade 2s forwards}
+@keyframes fade{0%{opacity:0;transform:translateY(8px)}40%{opacity:1;transform:none}80%{opacity:1}100%{opacity:0;transform:translateY(-8px)}}
+
+/* Responsive */
+@media (max-width:900px){
+  .hero-inner{flex-direction:column-reverse;gap:1rem}
+  .hero-image{width:100%;height:220px}
+  .modal-body{flex-direction:column}
+}
+@media (max-width:520px){
+  .header-inner{padding:0.6rem}
+  h1{font-size:1.5rem}
+}

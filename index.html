@@ -1,0 +1,248 @@
+
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>ROMAND Official — Son chính hãng | Landing</title>
+<meta name="description" content="ROMAND chính hãng - Zero Velvet, The Juicy Lasting, Juicy Lasting, Glasting Water, Blur Fudge, Glasting Color Gloss. Cam kết 100% authentic, đổi trả 7 ngày, đánh giá 5⭐."/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div style="display:flex;align-items:center;gap:1rem">
+        <div class="logo">ROMAND <span>Official VN</span></div>
+        <nav class="nav" aria-label="Main navigation">
+          <a href="#products">Sản phẩm</a>
+          <a href="#commit">Cam kết</a>
+          <a href="#reviews">Đánh giá</a>
+          <a href="#policy">Đổi trả</a>
+          <a href="#faq">FAQ</a>
+        </nav>
+      </div>
+      <div style="display:flex;gap:0.6rem;align-items:center">
+        <div class="cart-floating" id="cart-btn" title="Xem giỏ hàng">🛒 Giỏ (<span id="cart-count">0</span>)</div>
+      </div>
+    </div>
+    
+  </header>
+
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-text">
+        <div class="eyebrow">ROMAND — Chính hãng</div>
+        <h1>Bảng màu ROMAND — Chất son Hàn, màu chuẩn</h1>
+        <p class="lead">Zero Velvet, The Juicy Lasting, Juicy Lasting, Glasting Water, Blur Fudge, Glasting Color Gloss — Chất lượng, màu sắc đa dạng, an tâm chính hãng.</p>
+        <div class="hero-ctas">
+          <a class="btn" href="#products">Xem bộ sưu tập</a>
+          <a class="btn ghost" href="cart.html">Mở giỏ hàng</a>
+        </div>
+      </div>
+
+      <div class="hero-image" aria-hidden="true">
+        <img src="images/son00.jpg" alt="ROMAND hero image" />
+      </div>
+    </div>
+  </section>
+
+  <section id="products" class="section container">
+    <h2 class="section-title">Bộ sưu tập ROMAND</h2>
+    <p class="section-sub">Zero Velvet, The Juicy Lasting, Juicy Lasting, Glasting Water, Blur Fudge, Glasting Color Gloss — chọn màu theo mood của bạn</p>
+
+    <div class="product-grid" id="product-grid">
+
+      <article class="product-card" data-id="romand-jl-01" data-name="Juicy Lasting — #01 Juicy Oh" data-price="210000" data-img="images/son01.svg">
+        <div class="product-img"><img src="images/son01.jpg" alt="Juicy Lasting — #01 Juicy Oh"></div>
+        <h3>Juicy Lasting — #01 Juicy Oh</h3>
+        <p class="price">₫210,000</p>
+        <div class="card-actions">
+          <button class="small view-btn">Xem</button>
+          <button class="small" onclick="addToCartFromCard(this)">Thêm</button>
+        </div>
+      </article>
+
+      <article class="product-card" data-id="romand-jl-02" data-name="The Juicy Lasting — #A02 Nucadamia" data-price="220000" data-img="images/son02.svg">
+        <div class="product-img"><img src="images/son02.jpg" alt="The Juicy Lasting — #A02 Nucadamia"></div>
+        <h3>The Juicy Lasting — #A02 Nucadamia</h3>
+        <p class="price">₫220,000</p>
+        <div class="card-actions">
+          <button class="small view-btn">Xem</button>
+          <button class="small" onclick="addToCartFromCard(this)">Thêm</button>
+        </div>
+      </article>
+
+      <article class="product-card" data-id="romand-vt-03" data-name="Zero Velvet Tint — #V03 Persired" data-price="200000" data-img="images/son03.svg">
+        <div class="product-img"><img src="images/son03.jpg" alt="Zero Velvet Tint — #V03 Persired"></div>
+        <h3>Zero Velvet Tint — #V03 Persired</h3>
+        <p class="price">₫200,000</p>
+        <div class="card-actions">
+          <button class="small view-btn">Xem</button>
+          <button class="small" onclick="addToCartFromCard(this)">Thêm</button>
+        </div>
+      </article>
+
+      <article class="product-card" data-id="romand-gl-04" data-name="Glasting Water — #G04 Vintage Ocean" data-price="230000" data-img="images/son04.svg">
+        <div class="product-img"><img src="images/son04.jpg" alt="Glasting Water — #G04 Vintage Ocean"></div>
+        <h3>Glasting Water — #G04 Vintage Ocean</h3>
+        <p class="price">₫230,000</p>
+        <div class="card-actions">
+          <button class="small view-btn">Xem</button>
+          <button class="small" onclick="addToCartFromCard(this)">Thêm</button>
+        </div>
+      </article>
+
+      <article class="product-card" data-id="romand-zv-05" data-name="Zero Velvet — #05 Witty" data-price="195000" data-img="images/son05.svg">
+        <div class="product-img"><img src="images/son05.jpg" alt="Zero Velvet — #05 Witty"></div>
+        <h3>Zero Velvet — #05 Witty</h3>
+        <p class="price">₫195,000</p>
+        <div class="card-actions">
+          <button class="small view-btn">Xem</button>
+          <button class="small" onclick="addToCartFromCard(this)">Thêm</button>
+        </div>
+      </article>
+
+      <article class="product-card" data-id="romand-bf-06" data-name="Blur Fudge — #06 Mauvish" data-price="259000" data-img="images/son06.svg">
+        <div class="product-img"><img src="images/son06.jpg" alt="Blur Fudge — #06 Mauvish"></div>
+        <h3>Blur Fudge — #06 Mauvish</h3>
+        <p class="price">₫259,000</p>
+        <div class="card-actions">
+          <button class="small view-btn">Xem</button>
+          <button class="small" onclick="addToCartFromCard(this)">Thêm</button>
+        </div>
+      </article>
+
+      <article class="product-card" data-id="romand-gl-07" data-name="Glasting Water — #07 Pink Valley" data-price="210000" data-img="images/son07.svg">
+        <div class="product-img"><img src="images/son07.jpg" alt="Glasting Water — #07 Pink Valley"></div>
+        <h3>Glasting Water — #07 Pink Valley</h3>
+        <p class="price">₫210,000</p>
+        <div class="card-actions">
+          <button class="small view-btn">Xem</button>
+          <button class="small" onclick="addToCartFromCard(this)">Thêm</button>
+        </div>
+      </article>
+
+      <article class="product-card" data-id="romand-gcg-08" data-name="Glasting Color Gloss — #08 Cherry Up" data-price="220000" data-img="images/son08.svg">
+        <div class="product-img"><img src="images/son08.jpg" alt="Glasting Color Gloss — #08 Cherry Up"></div>
+        <h3>Glasting Color Gloss — #08 Cherry Up</h3>
+        <p class="price">₫220,000</p>
+        <div class="card-actions">
+          <button class="small view-btn">Xem</button>
+          <button class="small" onclick="addToCartFromCard(this)">Thêm</button>
+        </div>
+      </article>
+
+    </div>
+    <div style="text-align:center;margin-top:1.25rem">
+      <button class="btn" id="load-more">Tải thêm sản phẩm</button>
+    </div>
+  </section>
+
+  <section id="commit" class="section container">
+    <h2 class="section-title">Cam kết ROMAND chính hãng</h2>
+    <p class="section-sub">An tâm mua sắm — mọi sản phẩm đều được kiểm duyệt trước khi giao</p>
+
+    <div class="commit-grid">
+      <div class="commit-card">
+        <h4>100% Hàng chính hãng</h4>
+        <p>Hàng nhập chính ngạch / phân phối bởi đơn vị uy tín. Kiểm tra tem, mã vạch trước khi giao.</p>
+      </div>
+      <div class="commit-card">
+        <h4>Kiểm tra & Đảm bảo</h4>
+        <p>Nếu phát hiện hàng giả - hoàn trả 100% và bồi thường theo chính sách.</p>
+      </div>
+      <div class="commit-card">
+        <h4>Hỗ trợ sau bán</h4>
+        <p>Hỗ trợ đổi, trả trong 7 ngày nếu lỗi từ nhà sản xuất hoặc do đơn vị vận chuyển (xem chi tiết bên dưới).</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="reviews" class="section container">
+    <h2 class="section-title">Hơn 2,000 khách hàng hài lòng — Đánh giá 5⭐</h2>
+    <p class="section-sub">Một vài review thực tế từ khách hàng đã mua và sử dụng ROMAND</p>
+
+    <div class="testimonials">
+      <button class="small" id="prev-test">‹</button>
+      <div class="test-track" id="test-track">
+        <blockquote class="test-item"><div class="stars">★★★★★</div><p>"Zero Velvet lên màu chuẩn, không làm khô môi. Mình dùng hàng ngày rất thích."</p><div class="test-meta">— Linh (TP.HCM)</div></blockquote>
+        <blockquote class="test-item"><div class="stars">★★★★★</div><p>"Juicy Lasting căng mọng, nhìn rất xinh, shop gói kẹp nơ siêu yêu."</p><div class="test-meta">— Mai (Hà Nội)</div></blockquote>
+        <blockquote class="test-item"><div class="stars">★★★★★</div><p>"Glasting cho lớp finish như ánh ngọc, mình dùng cho event rất hợp."</p><div class="test-meta">— Trang (Đà Nẵng)</div></blockquote>
+        <blockquote class="test-item"><div class="stars">★★★★★</div><p>"Đóng gói kỹ, giao hàng siêu nhanh. Màu giống hình 98%."</p><div class="test-meta">— Hương (Cần Thơ)</div></blockquote>
+        <blockquote class="test-item"><div class="stars">★★★★★</div><p>"Màu lên chuẩn, độ bám tốt, sẽ ủng hộ shop dài dài."</p><div class="test-meta">— Thu (HCM)</div></blockquote>
+      </div>
+      <button class="small" id="next-test">›</button>
+    </div>
+  </section>
+
+  <section id="policy" class="section container">
+    <h2 class="section-title">Chính sách đổi trả — 7 ngày</h2>
+    <p class="section-sub">Đổi trả miễn phí nếu có lỗi do shop/nhà sản xuất hoặc hư hỏng do vận chuyển</p>
+    <div style="background:#fff;padding:1rem;border-radius:12px;box-shadow:var(--card-shadow)">
+      <ul>
+        <li><strong>Thời hạn:</strong> Trong vòng 7 ngày kể từ ngày nhận hàng.</li>
+        <li><strong>Điều kiện chấp nhận:</strong> Sản phẩm sai mẫu, hư hỏng (vỡ, seal bị vỡ), thiếu hàng.</li>
+        <li><strong>Không chấp nhận:</strong> Sản phẩm bị sử dụng quá mức, mất tem seal do khách mở thử quá nhiều.</li>
+        <li><strong>Thủ tục:</strong> Giữ lại phiếu giao hàng, chụp ảnh chứng minh, liên hệ hotline/email để được hướng dẫn đổi trả.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="faq" class="section container">
+    <h2 class="section-title">Câu hỏi thường gặp</h2>
+    <div class="faq-grid">
+      <details><summary>Sản phẩm có chính hãng không?</summary><div class="faq-body">Tất cả sản phẩm tại đây được cam kết 100% chính hãng.Bạn có thể check mã vạch, nếu phát hiện ra hàng fake, hàng kém chất lượng shop sẽ bồi thường 100%.</div></details>
+      <details><summary>Giao hàng mất bao lâu?</summary><div class="faq-body">Tùy khu vực nhé ạ: Trong TP lớn 1-2 ngày, tỉnh/huyện 2-4 ngày. Hỗ trợ giao nhanh khi cần.</div></details>
+      <details><summary>Mình dị ứng, có nên mua không?</summary><div class="faq-body">Nếu da hoặc môi của bạn nhạy cảm, vui lòng kiểm tra bảng thành phần hoặc thử patch test trước khi dùng.</div></details>
+    </div>
+  </section>
+
+  <section class="section container">
+    <div class="newsletter">
+      <h3>Nhận mã giảm giá & cập nhật màu mới</h3>
+      <p>Đăng ký để nhận ưu đãi 10% cho đơn hàng đầu tiên</p>
+      <form id="newsletter-form" onsubmit="return false" style="display:flex;gap:0.6rem;justify-content:center;flex-wrap:wrap">
+        <input id="newsletter-email" type="email" placeholder="Nhập email..." required>
+        <button class="btn" id="newsletter-btn">Đăng ký</button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div style="display:flex;flex-direction:column;gap:0.25rem;align-items:center">
+        <div style="font-weight:800;color:var(--accent)">ROMAND Official VN</div>
+        <div style="color:#6b4a52">Hotline: <a href="tel:0902586900">0902 586 900</a> • Email: <a href="mailto:romandvietnam@gmail.com">romandvietnam@gmail.com</a></div>
+        <small style="color:#9a6a75">© 2025 ROMAND — All rights reserved</small>
+      </div>
+    </div>
+  </footer>
+
+
+  <div id="product-modal" class="modal" aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button class="modal-close" aria-label="Đóng" onclick="closeModal()">✕</button>
+      <div class="modal-body">
+        <div class="modal-img" id="modal-img"></div>
+        <div class="modal-info">
+          <h3 id="modal-title">Sản phẩm</h3>
+          <p id="modal-desc">Mô tả ngắn</p>
+          <p class="price" id="modal-price" style="color:var(--accent);font-weight:800"></p>
+          <div style="margin-top:0.75rem;display:flex;gap:0.6rem;align-items:center">
+            <label>Số lượng: <input id="modal-qty" type="number" value="1" min="1" style="width:70px;padding:6px;border-radius:6px;border:1px solid #f0cbd3"></label>
+            <button class="btn" id="modal-add">Thêm vào giỏ</button>
+            <button class="btn ghost" onclick="closeModal()">Đóng</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="cart-toast" class="toast" aria-hidden="true">Đã thêm vào giỏ</div>
+
+<script src="scripts.js"></script>
+</body>
+</html>
